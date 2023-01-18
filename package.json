@@ -12,7 +12,6 @@
   "scripts": {
     "build": "tsc",
     "serve": "nodemon --watch *.ts --exec ts-node ./api/index.ts",
-    "vercel-build": "node dist/index.js",
     "lint": "eslint --fix"
   },
   "devDependencies": {
