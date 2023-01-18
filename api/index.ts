@@ -20,7 +20,7 @@ route.get("/", (req: Request, res: Response) => {
     message: "Sucesso!" + name
   })
 })
-route.get("/flip", (req: Request, res: Response) => {
+route.get("/api/flip", (req: Request, res: Response) => {
   const { name = "World" } = req.query
   return res.status(200).json({
     success: true,
