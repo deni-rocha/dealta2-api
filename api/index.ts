@@ -1,6 +1,19 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node"
+import express = require("express")
+import dotenv = require("dotenv")
+import { Router, Request, Response } from "express"
 
-export default function (req: VercelRequest, res: VercelResponse) {
+dotenv.config()
+const app = express()
+const route = Router()
+
+route.get("/api", (req: Request, res: Response) => {
   const { name = "World" } = req.query
-  res.send(`Hello ${name}!`)
-}
+  return res.status(200).json({
+    success: true,
+    message: "Sucesso!" + name
+  })
+})
+
+app.use(route)
+const port = process.env.PORT || 4000
+app.listen(port, () => console.log(`tá rodando na porta ${port}`))
