@@ -10,7 +10,6 @@
     "typescript": "^4.9.4"
   },
   "scripts": {
-    "build": "tsc",
     "serve": "nodemon --watch *.ts --exec ts-node ./api/index.ts",
     "lint": "eslint --fix"
   },
