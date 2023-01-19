@@ -5,6 +5,7 @@
   "author": "Denilson Rocha",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "typescript": "^4.9.4",

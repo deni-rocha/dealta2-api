@@ -1,6 +1,7 @@
 import express = require("express")
 import dotenv = require("dotenv")
 import { Router, Request, Response } from "express"
+import cors from "cors"
 
 dotenv.config()
 const app = express()
@@ -29,5 +30,7 @@ route.get("/api/flip", (req: Request, res: Response) => {
 })
 
 app.use(route)
+app.use(cors())
+
 const port = process.env.PORT || 4000
 app.listen(port, () => console.log(`tá rodando na porta ${port}`))
