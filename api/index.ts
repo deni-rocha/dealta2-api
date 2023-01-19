@@ -7,6 +7,9 @@ dotenv.config()
 const app = express()
 const route = Router()
 
+app.use(route)
+app.use(cors())
+
 route.get("/api", (req: Request, res: Response) => {
   const { name = "World" } = req.query
   return res.status(200).json({
@@ -28,9 +31,6 @@ route.get("/api/flip", (req: Request, res: Response) => {
     message: "nem sei mano" + name
   })
 })
-
-app.use(route)
-app.use(cors())
 
 const port = process.env.PORT || 4000
 app.listen(port, () => console.log(`tá rodando na porta ${port}`))
