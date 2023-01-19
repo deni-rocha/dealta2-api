@@ -1,15 +1,15 @@
 import express = require("express")
 import dotenv = require("dotenv")
 import cors = require("cors")
-import { Router, Request, Response } from "express"
+import { Router, Request, Response, NextFunction } from "express"
 
 dotenv.config()
 const app = express()
 const route = Router()
 
-app.use(route)
 app.use(cors())
-
+app.use(express.json())
+app.use(route)
 route.get("/api", (req: Request, res: Response) => {
   const { name = "World" } = req.query
   return res.status(200).json({
