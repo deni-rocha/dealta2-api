@@ -20,29 +20,33 @@ route.get("/api", (req: Request, res: Response) => {
   })
 })
 
-route.get("/teste", (req: Request, res: Response) => {
-  const { name = "World" } = req.query
-  return res.status(200).json({
-    success: true,
-    message: "é isso mesmo, não precisa colocar /api no route get" + name
-  })
-})
+route.get("/api/charts", async (req: Request, res: Response) => {
+  try {
+    const { data } = await axios.get(`https://api.deezer.com/chart/0`)
 
-route.get("/api/chart", async (req: Request, res: Response) => {
-  const responseApi = await axios.get("https://api.deezer.com/chart/0")
-  const data = responseApi.data
-  return res.status(200).json({
-    data
-  })
+    const randomNumber = Math.floor(Math.random() * (data.artists.total - 1))
+    const trendingArtist = data.artists.data[randomNumber]
+
+    const newData = { ...data, trendingArtist }
+
+    return res.status(200).json(newData)
+  } catch (error) {
+    return res.status(404).json(error)
+  }
 })
 
 route.get("/api/artist/:id", async (req: Request, res: Response) => {
-  const { id } = req.params
-  const responseApi = await axios.get(`https://api.deezer.com/artist/${id}`)
-  const data = responseApi.data
-  return res.status(200).json({
-    data
-  })
+  try {
+    const { id } = req.params
+    const responseDeezer = await axios.get(
+      `https://api.deezer.com/artist/${id}/top?limit=5`
+    )
+    const data = responseDeezer.data.data
+
+    res.status(200).json(data)
+  } catch (error) {
+    res.status(404).json(error)
+  }
 })
 
 const port = process.env.PORT || 4000
