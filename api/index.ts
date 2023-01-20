@@ -2,6 +2,7 @@ import express = require("express")
 import dotenv = require("dotenv")
 import cors = require("cors")
 import { Router, Request, Response } from "express"
+import axios from "axios"
 
 dotenv.config()
 const app = express()
@@ -10,6 +11,7 @@ const route = Router()
 app.use(cors())
 app.use(express.json())
 app.use(route)
+
 route.get("/api", (req: Request, res: Response) => {
   const { name = "World" } = req.query
   return res.status(200).json({
@@ -17,18 +19,29 @@ route.get("/api", (req: Request, res: Response) => {
     message: "Sucesso!" + name
   })
 })
-route.get("/", (req: Request, res: Response) => {
+
+route.get("/teste", (req: Request, res: Response) => {
   const { name = "World" } = req.query
   return res.status(200).json({
     success: true,
-    message: "Sucesso!" + name
+    message: "é isso mesmo, não precisa colocar /api no route get" + name
   })
 })
-route.get("/api/flip", (req: Request, res: Response) => {
-  const { name = "World" } = req.query
+
+route.get("/api/chart", async (req: Request, res: Response) => {
+  const responseApi = await axios.get("https://api.deezer.com/chart/0")
+  const data = responseApi.data
   return res.status(200).json({
-    success: true,
-    message: "nem sei mano" + name
+    data
+  })
+})
+
+route.get("/api/artist/:id", async (req: Request, res: Response) => {
+  const { id } = req.params
+  const responseApi = await axios.get(`https://api.deezer.com/artist/${id}`)
+  const data = responseApi.data
+  return res.status(200).json({
+    data
   })
 })
 
