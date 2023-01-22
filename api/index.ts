@@ -3,6 +3,8 @@ import dotenv = require("dotenv")
 import cors = require("cors")
 import { Router, Request, Response } from "express"
 import axios from "axios"
+import charts from "./controllers/charts"
+import PageController from "./controllers/pageController"
 
 dotenv.config()
 const app = express()
@@ -12,28 +14,11 @@ app.use(cors())
 app.use(express.json())
 app.use(route)
 
-route.get("/api", (req: Request, res: Response) => {
-  const { name = "World" } = req.query
-  return res.status(200).json({
-    success: true,
-    message: "Sucesso!" + name
-  })
-})
+const pages = new PageController()
 
-route.get("/api/charts", async (req: Request, res: Response) => {
-  try {
-    const { data } = await axios.get(`https://api.deezer.com/chart/0`)
+route.get("/api", pages.getHome)
 
-    const randomNumber = Math.floor(Math.random() * (data.artists.total - 1))
-    const trendingArtist = data.artists.data[randomNumber]
-
-    const newData = { ...data, trendingArtist }
-
-    return res.status(200).json(newData)
-  } catch (error) {
-    return res.status(404).json(error)
-  }
-})
+route.get("/api/charts", charts)
 
 route.get("/api/artist/:id", async (req: Request, res: Response) => {
   try {

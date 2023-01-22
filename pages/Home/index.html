@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/image/icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+
+      body {
+        color: #141e27;
+        background-color: #eeedde;
+        font-family: "Roboto", sans-serif;
+      }
+      .div-tittle {
+        margin-left: 12px;
+        display: flex;
+        font-weight: 700;
+        font-size: 2.5rem;
+        justify-content: center;
+      }
+      .style-word {
+        text-shadow: 1px 1px 1px #009688;
+      }
+      .first-word {
+        color: #f55376;
+        margin-right: 8px;
+      }
+      .second-word {
+        color: #f5bc00;
+      }
+      .third-word {
+        color: #00b569;
+      }
+
+      .fourth-word {
+        color: #f55376;
+      }
+
+      .navegacao {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.5rem;
+      }
+
+      .listNav li {
+        list-style: none;
+        margin-bottom: 1rem;
+        transition: all 0.3s;
+        border-radius: 8px;
+      }
+
+      .listNav a {
+        padding: 4px;
+        cursor: pointer;
+        color: #141e27;
+        text-decoration: none;
+      }
+
+      .listNav li:hover {
+        background-color: #cac9c0;
+        transform: scale(1.2);
+      }
+    </style>
+    <title>De Alta-api</title>
+  </head>
+  <body>
+    <header>
+      <div class="div-tittle">
+        <p class="first-word style-word">De</p>
+        <p class="second-word style-word">AL</p>
+        <p class="third-word style-word">TA</p>
+        <p class="fourth-word style-word">-api</p>
+      </div>
+      <nav class="navegacao">
+        <ul class="listNav">
+          <li><a href="/api/charts"> Charts </a></li>
+          <li><a href="/artist"> Artist </a></li>
+          <li><a href="/track"> Track </a></li>
+          <li><a href="/album"> Album </a></li>
+          <li><a href="/playlist"> Playlist </a></li>
+          <li><a href="/podcast"> Podcast </a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
