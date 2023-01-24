@@ -3,8 +3,8 @@ import dotenv = require("dotenv")
 import cors = require("cors")
 import { Router, Request, Response } from "express"
 import axios from "axios"
-import charts from "../src/controllers/charts"
-import PageController from "../src/controllers/pageController"
+import charts from "./controllers/charts"
+import PageController from "./controllers/pageController"
 import path = require("path")
 
 dotenv.config()
@@ -17,7 +17,8 @@ app.use(route)
 
 const pages = new PageController()
 
-const pathFileStatic = path.join(__dirname, "../src/public")
+const pathFileStatic = path.join(__dirname, "public")
+console.log(pathFileStatic)
 app.use(express.static(pathFileStatic))
 route.get("/api", pages.getHome)
 
