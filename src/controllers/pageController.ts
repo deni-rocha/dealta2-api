@@ -55,7 +55,7 @@ class PageController {
 
 function getOptions(namePage) {
   const options = {
-    root: path.join(__dirname, `../../pages/${namePage}`),
+    root: path.join(__dirname, `../pages/${namePage}`),
     dotfiles: "deny",
     headers: {
       "x-timestamp": Date.now(),

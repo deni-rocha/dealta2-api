@@ -9,6 +9,6 @@
     "resolveJsonModule": true,
     "lib": ["ESNext", "DOM"]
   },
-  "include": ["api/**/*.ts"],
+  "include": ["api/**/*.ts", "src/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
