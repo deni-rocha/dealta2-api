@@ -3,54 +3,49 @@ import { Request, Response, NextFunction } from "express"
 
 const fileName = "index.html"
 
-class PageController {
-  async getHome(req: Request, res: Response, next: NextFunction) {
-    res.sendFile(fileName, getOptions("Home"), function (err) {
+const PageController = {
+  getHome: async (req: Request, res: Response, next: NextFunction) => {
+    res.sendFile(fileName, getOptions("home"), function (err) {
+      if (err) {
+        next(err)
+      }
+    })
+  },
+  getArtist: async (req: Request, res: Response, next: NextFunction) => {
+    res.sendFile(fileName, getOptions("artist"), function (err) {
+      if (err) {
+        next(err)
+      }
+    })
+  },
+  getTrack: async (req: Request, res: Response, next: NextFunction) => {
+    res.sendFile(fileName, getOptions("track"), function (err) {
+      if (err) {
+        next(err)
+      }
+    })
+  },
+  getAlbum: async (req: Request, res: Response, next: NextFunction) => {
+    res.sendFile(fileName, getOptions("album"), function (err) {
+      if (err) {
+        next(err)
+      }
+    })
+  },
+  getPlaylist: async (req: Request, res: Response, next: NextFunction) => {
+    res.sendFile(fileName, getOptions("playlist"), function (err) {
+      if (err) {
+        next(err)
+      }
+    })
+  },
+  getPodcast: async (req: Request, res: Response, next: NextFunction) => {
+    res.sendFile(fileName, getOptions("podcast"), function (err) {
       if (err) {
         next(err)
       }
     })
   }
-
-  //   getArtist(req, res){
-  //     res.sendFile(fileName, getOptions('Artist'), function (err) {
-  //       if (err) {
-  //         next(err)
-  //       }
-  //     })
-  //   }
-
-  //   getTrack(req, res){
-  //     res.sendFile(fileName, getOptions('Track'), function (err) {
-  //       if (err) {
-  //         next(err)
-  //       }
-  //     })
-  //   }
-
-  //   getAlbum(req, res){
-  //     res.sendFile(fileName, getOptions('Album'), function (err) {
-  //       if (err) {
-  //         next(err)
-  //       }
-  //     })
-  //   }
-
-  //   getPlaylist(req, res){
-  //     res.sendFile(fileName, getOptions('Playlist'), function (err) {
-  //       if (err) {
-  //         next(err)
-  //       }
-  //     })
-  //   }
-
-  //   getPodcast(req, res){
-  //     res.sendFile(fileName, getOptions('Podcast'), function (err) {
-  //       if (err) {
-  //         next(err)
-  //       }
-  //     })
-  //   }
 }
 
 function getOptions(namePage) {
