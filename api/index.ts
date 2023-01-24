@@ -5,6 +5,7 @@ import { Router, Request, Response } from "express"
 import axios from "axios"
 import charts from "./controllers/charts"
 import PageController from "./controllers/pageController"
+import path = require("path")
 
 dotenv.config()
 const app = express()
@@ -16,6 +17,8 @@ app.use(route)
 
 const pages = new PageController()
 
+const pathFileStatic = path.join(__dirname, "../public")
+app.use(express.static(pathFileStatic))
 route.get("/api", pages.getHome)
 
 route.get("/api/charts", charts)
