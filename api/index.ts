@@ -17,7 +17,7 @@ app.use(route)
 
 const pages = new PageController()
 
-const pathFileStatic = path.join(__dirname, "public")
+const pathFileStatic = path.join(__dirname, "../public")
 console.log(pathFileStatic)
 app.use(express.static(pathFileStatic))
 route.get("/api", pages.getHome)
