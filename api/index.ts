@@ -4,6 +4,7 @@ import cors = require("cors")
 import { Router } from "express"
 import path = require("path")
 import routes from "./routes"
+import PageController from "./controllers/pageController"
 
 // Configurações
 dotenv.config()
@@ -14,6 +15,7 @@ app.use(express.json())
 
 // Rotas
 app.use(route)
+route.get("/api", PageController.getHome)
 app.use("/api", routes)
 
 // Arquivos estáticos

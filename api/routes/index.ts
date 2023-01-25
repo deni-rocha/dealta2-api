@@ -2,9 +2,8 @@ import { Router, Request, Response, NextFunction } from "express"
 import charts from "../controllers/charts"
 import DetailsController from "../controllers/DetailsController"
 import PageController from "../controllers/pageController"
-const router = Router()
 
-router.get("", PageController.getHome)
+const router = Router()
 
 router.get("/charts", charts)
 
