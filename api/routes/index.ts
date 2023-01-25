@@ -5,9 +5,7 @@ import PageController from "../controllers/pageController"
 
 const router = Router()
 
-router.get("/", (req: Request, res: Response, next: NextFunction) => {
-  PageController.getHome(req, res, next)
-})
+router.get("/painel", PageController.getHome)
 
 router.get("/charts", charts)
 
