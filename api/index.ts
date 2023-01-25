@@ -14,7 +14,6 @@ app.use(express.json())
 
 // Rotas
 app.use(route)
-
 app.use("/api", routes)
 
 // Arquivos estáticos
