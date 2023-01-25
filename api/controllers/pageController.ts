@@ -12,7 +12,7 @@ const PageController = {
     })
   },
   getArtist: async (req: Request, res: Response, next: NextFunction) => {
-    res.sendFile(fileName, getOptions("artist"), function (err) {
+    res.sendFile(fileName, getOptions("Artist"), function (err) {
       if (err) {
         next(err)
       }
