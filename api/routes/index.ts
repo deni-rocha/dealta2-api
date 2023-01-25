@@ -5,8 +5,6 @@ import PageController from "../controllers/pageController"
 
 const router = Router()
 
-router.get("/painel", PageController.getHome)
-
 router.get("/charts", charts)
 
 router.get(
