@@ -5,7 +5,7 @@ const fileName = "index.html"
 
 const PageController = {
   getHome: async (req: Request, res: Response, next: NextFunction) => {
-    res.sendFile(fileName, getOptions("home"), function (err) {
+    res.sendFile(fileName, getOptions("Home"), function (err) {
       if (err) {
         next(err)
       }
